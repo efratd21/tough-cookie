@@ -1,12 +1,12 @@
-🔒 SealSecurityAssignment
-🕵️‍♂️ Researching on the Vulnerability: CVE-2023-26136
-📌 Description
+# 🔒 SealSecurityAssignment
+## 🕵️‍♂️ Researching on the Vulnerability: CVE-2023-26136
+### 📌 Description
 Versions of the package tough-cookie before 4.1.3 are vulnerable to Prototype Pollution due to improper handling of cookies when using CookieJar in rejectPublicSuffixes=false mode. This issue arises from the way objects are initialized.
 
 🔗 CVE Details: CVE-2023-26136
 
-🛠️ Introduction
-❓ What is Prototype Pollution?
+## 🛠️ Introduction
+### ❓ What is Prototype Pollution?
 JavaScript uses objects as key-value stores, where each object can contain properties of various types (string, boolean, int, etc.). These objects inherit properties through their prototype chain.
 
 Prototype Pollution is an attack where an attacker manipulates an object’s prototype to inject unintended properties or methods. By doing so, the attacker can modify the behavior of existing objects, potentially leading to security vulnerabilities.
@@ -17,19 +17,19 @@ A recommended mitigation strategy is to initialize objects with a null prototype
 const obj = Object.create(null);
 This prevents unintended inheritance and mitigates the vulnerability.
 
-🍪 What are Cookies?
+### 🍪 What are Cookies?
 Cookies are small pieces of data stored on a user’s device to track session state, authentication, and preferences. Websites use cookies to maintain user sessions, but improper handling can lead to security risks.
 
 🔗 More on Cookies: Kaspersky Resource Center
 
-🏺 What is CookieJar?
+### 🏺 What is CookieJar?
 CookieJar is an object used to store and manage cookies. It ensures proper storage, retrieval, and expiration of cookies in web applications.
 
-🛠️ The Assignment
-⚠️ The Vulnerability
+## 🛠️ The Assignment
+### ⚠️ The Vulnerability
 The CVE-2023-26136 vulnerability exists due to the way Tough-Cookie initializes cookies in CookieJar. Since cookies are stored as objects, they become susceptible to Prototype Pollution, allowing an attacker to inject properties that could manipulate application logic.
 
-🔥 The Risks
+### 🔥 The Risks
 An attacker exploiting this vulnerability could:
 
 Access unauthorized data
@@ -37,7 +37,7 @@ Execute remote code
 Cause Denial of Service (DoS)
 Hijack user sessions (if cookies are used for authentication)
 Extract sensitive cookie data
-🛠️ The Patch
+### 🛠️ The Patch
 The vulnerability was avoided by modifying the storage mechanism in memstore.js.
 
 📝 Code Fix:
@@ -84,7 +84,7 @@ After applying the fix, run:
 npm install ./tough-cookie-2.5.0-PATCHED.tgz; node index.js
 Expected Output:
 EXPLOIT FAILED
-🏆 Summary
+## 🏆 Summary
 This project highlights the dangers of Prototype Pollution in tough-cookie and provides a practical demonstration of how the vulnerability can be exploited and mitigated.
 
 📌 For more details, check the full research in the repository. 🚀
